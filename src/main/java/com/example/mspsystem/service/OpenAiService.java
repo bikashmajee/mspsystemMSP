@@ -28,38 +28,6 @@ public class OpenAiService {
     private JavaMailSender mailSender;
     @Autowired
     private GeminiService geminiService;
-    // Call OpenAI API and generate escalation email content
-//    public String generateEscalationEmail(String prompt) throws Exception {
-//        HttpClient client = HttpClient.newHttpClient();
-//        ObjectMapper mapper = new ObjectMapper();
-//
-//        // Build JSON payload using Jackson
-//        ObjectNode rootNode = mapper.createObjectNode();
-////        rootNode.put("model", "gpt-4");
-//        rootNode.put("model", "gpt-5-nano");
-//
-//        ArrayNode messagesNode = mapper.createArrayNode();
-//        ObjectNode messageObj = mapper.createObjectNode();
-//        messageObj.put("role", "user");
-//        messageObj.put("content", prompt);
-//        messagesNode.add(messageObj);
-//
-//        rootNode.set("messages", messagesNode);
-//        rootNode.put("max_tokens", 200);
-//        String body = mapper.writeValueAsString(rootNode);
-//
-//        HttpRequest request = HttpRequest.newBuilder()
-//                .uri(new URI("https://api.openai.com/v1/chat/completions"))
-//                .header("Content-Type", "application/json")
-//                .header("Authorization", "Bearer " + OPENAI_API_KEY)
-//                .POST(HttpRequest.BodyPublishers.ofString(body))
-//                .build();
-//
-//        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
-//        JsonNode jsonNode = mapper.readTree(response.body());
-//
-//        return jsonNode.path("choices").get(0).path("message").path("content").asText();
-//    }
 
     // Method to send the email using generated content
     public void sendAiEscalationEmail(Ticket ticket) {
@@ -106,9 +74,8 @@ public class OpenAiService {
 
 
     public String generateEscalationEmail(String prompt) throws Exception {
-        String GEMINI_API_KEY = "";// add api key
-//        String apiEndpoint = "https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=" + GEMINI_API_KEY;
-        String apiEndpoint = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=" + GEMINI_API_KEY;
+        String API_KEY = "";// add api key
+        String apiEndpoint = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=" + API_KEY;
 
         ObjectMapper mapper = new ObjectMapper();
 

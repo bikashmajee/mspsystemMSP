@@ -12,10 +12,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 @Service
 public class GeminiService {
 
-    private static final String GEMINI_API_KEY = "YOUR_GEMINI_API_KEY";
+    private static final String API_KEY = "YOUR_GEMINI_API_KEY";
 
     public String generateEscalationEmail(String prompt) throws Exception {
-        String apiEndpoint = "https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=" + GEMINI_API_KEY;
+        String apiEndpoint = "https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=" + API_KEY;
 
         ObjectMapper mapper = new ObjectMapper();
         String body = mapper.writeValueAsString(
