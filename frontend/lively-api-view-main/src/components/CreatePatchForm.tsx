@@ -16,15 +16,20 @@ const CreatePatchForm = ({ onSuccess }: { onSuccess?: () => void }) => {
 
     setLoading(true);
     try {
-      const response = await fetch('http://localhost:8080/api/patchjobs', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ 
-          patchName: patchName.trim(),
-          scheduledTime: scheduledTime.trim()
-        })
+      // const response = await fetch('http://localhost:8080/api/patchjobs', {
+      //   method: 'POST',
+      //   headers: { 'Content-Type': 'application/json' },
+      //   body: JSON.stringify({
+      //     patchName: patchName.trim(),
+      //     scheduledTime: scheduledTime.trim()
+      //   })
+      // });
+const response = await fetch(`http://localhost:8080/api/patchjobs?patchName=${patchName.trim()}&scheduleTime=${scheduledTime.trim()}`, {
+        method: 'POST'
       });
-
+      console.log('Creating patch with data:');
+      console.log(typeof patchName.trim());
+      console.log(typeof scheduledTime.trim());
       if (!response.ok) throw new Error('Failed to create patch');
 
       toast({
