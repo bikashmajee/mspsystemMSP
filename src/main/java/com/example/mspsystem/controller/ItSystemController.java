@@ -13,8 +13,8 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/api")
-//@CrossOrigin(origins = "*")
-@CrossOrigin(origins = "http://localhost:8081")
+@CrossOrigin(origins = "*")
+//@CrossOrigin(origins = "http://localhost:8081")
 
 public class ItSystemController {
 

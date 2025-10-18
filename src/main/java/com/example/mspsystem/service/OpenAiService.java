@@ -24,7 +24,6 @@ import com.fasterxml.jackson.databind.node.ArrayNode;
 @Service
 public class OpenAiService {
 
-    private static final String OPENAI_API_KEY = "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";
     @Autowired
     private JavaMailSender mailSender;
     @Autowired
@@ -107,7 +106,7 @@ public class OpenAiService {
 
 
     public String generateEscalationEmail(String prompt) throws Exception {
-        String GEMINI_API_KEY = "AIzaSyD8Sd_GtnKUYG10T7H9JoKBvXL02ourz0o";
+        String GEMINI_API_KEY = "";// add api key
 //        String apiEndpoint = "https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=" + GEMINI_API_KEY;
         String apiEndpoint = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=" + GEMINI_API_KEY;
 
